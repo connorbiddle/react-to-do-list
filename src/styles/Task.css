@@ -1,0 +1,59 @@
+.Task {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(30, 28, 44, 0.6);
+  padding: 1rem 0;
+  list-style: none;
+}
+
+.Task.last {
+  border-bottom: none;
+}
+
+.Task-text {
+  margin-top: 0.3em;
+  position: relative;
+  transition: 0.3s ease opacity;
+}
+
+.Task-text::after {
+  position: absolute;
+  left: -5%;
+  top: calc(50% - 1px);
+  content: "";
+  width: 110%;
+  height: 1.5px;
+  background: #1e1c2c;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: 0.3s ease transform;
+}
+
+.completed .Task-text {
+  opacity: 0.6;
+}
+
+.completed .Task-text::after {
+  transform: scale(1);
+}
+
+.Task-checkbox {
+  display: none;
+}
+
+.Task-custom-checkbox {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 17.5px;
+  height: 17.5px;
+  border: 2px solid #1e1c2c;
+  border-radius: 5px;
+  margin-right: 1rem;
+  transition: 0.3s background-color ease-out;
+}
+
+.completed .Task-custom-checkbox {
+  background: #1e1c2c;
+}

@@ -1,0 +1,14 @@
+.TasksList {
+  background: #fff;
+  width: 500px;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.7);
+}
+
+.TasksList-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
