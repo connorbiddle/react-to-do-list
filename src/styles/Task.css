@@ -5,24 +5,31 @@
   border-bottom: 1px solid rgba(30, 28, 44, 0.6);
   padding: 1rem 0;
   list-style: none;
+  cursor: pointer;
 }
 
-.Task.last {
+.Task:last-of-type {
   border-bottom: none;
+}
+
+.Task-icon {
+  display: inline-block;
+  margin-right: 1.5rem;
 }
 
 .Task-text {
   margin-top: 0.3em;
   position: relative;
   transition: 0.3s ease opacity;
+  line-height: 1.5;
 }
 
 .Task-text::after {
-  position: absolute;
-  left: -5%;
-  top: calc(50% - 1px);
   content: "";
-  width: 110%;
+  position: absolute;
+  left: -2.5%;
+  top: calc(50% - 1px);
+  width: 105%;
   height: 1.5px;
   background: #1e1c2c;
   transform: scaleX(0);
@@ -31,29 +38,14 @@
 }
 
 .completed .Task-text {
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .completed .Task-text::after {
   transform: scale(1);
 }
 
-.Task-checkbox {
-  display: none;
-}
-
-.Task-custom-checkbox {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  width: 17.5px;
-  height: 17.5px;
-  border: 2px solid #1e1c2c;
-  border-radius: 5px;
-  margin-right: 1rem;
-  transition: 0.3s background-color ease-out;
-}
-
-.completed .Task-custom-checkbox {
-  background: #1e1c2c;
+.Task-delete {
+  margin-left: auto;
+  color: #b31f1f;
 }

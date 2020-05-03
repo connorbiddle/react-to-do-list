@@ -1,26 +1,23 @@
 import React, { useContext } from "react";
-import { TasksContext } from "../context/TasksContext";
+import { AppContext } from "../context/AppContext";
 import "../styles/Task.css";
 
-const Task = ({ id, name, completed, isLast }) => {
-  const { toggleCompleted } = useContext(TasksContext);
-  const toggle = () => toggleCompleted(id);
+const Task = ({ id, name, completed }) => {
+  const { toggleCompleted, deleteTask } = useContext(AppContext);
 
-  const classes = ["Task"];
-  if (completed) classes.push("completed");
-  if (isLast) classes.push("last");
+  const toggle = () => toggleCompleted(id);
+  const remove = (e) => {
+    e.stopPropagation();
+    deleteTask(id);
+  };
 
   return (
-    <li className={classes.join(" ")}>
-      <input
-        className="Task-checkbox"
-        type="checkbox"
-        id={`Checkbox-${id}`}
-        checked={completed}
-        onClick={toggle}
+    <li className={"Task" + (completed ? " completed" : "")} onClick={toggle}>
+      <i
+        className={`Task-icon far fa-${completed ? "check-square" : "square"}`}
       />
-      <label className="Task-custom-checkbox" htmlFor={`Checkbox-${id}`} />
       <span className="Task-text">{name}</span>
+      <i className="Task-delete far fa-trash-alt" onClick={remove} />
     </li>
   );
 };

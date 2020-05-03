@@ -1,14 +1,14 @@
 import React from "react";
-import { TasksProvider } from "./context/TasksContext";
+import { AppProvider } from "./context/AppContext";
 import TasksList from "./components/TasksList";
 import "./App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <TasksProvider>
+      <AppProvider>
         <TasksList />
-      </TasksProvider>
+      </AppProvider>
     </div>
   );
 };
