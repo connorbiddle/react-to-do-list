@@ -1,17 +1,13 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 
 export const AppContext = createContext();
 
-const defaultTasks = [
-  { id: uuid(), name: "Walk the dog", completed: true },
-  { id: uuid(), name: "Tidy bedroom", completed: false },
-  { id: uuid(), name: "Wash the dishes", completed: false },
-  { id: uuid(), name: "Mow the back garden", completed: false },
-];
-
 export const AppProvider = (props) => {
-  const [tasks, setTasks] = useState(defaultTasks);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("ToDoListTasks")) || []
+  );
+  const [isAddingTask, setIsAddingTask] = useState(false);
 
   const toggleCompleted = (taskId) => {
     const newTasks = tasks.map((task) =>
@@ -19,14 +15,32 @@ export const AppProvider = (props) => {
     );
     setTasks(newTasks);
   };
-
+  const createTask = (taskName) => {
+    setTasks([...tasks, { id: uuid(), name: taskName, completed: false }]);
+  };
+  const startAddTask = () => setIsAddingTask(true);
+  const cancelAddTask = () => setIsAddingTask(false);
   const deleteTask = (taskId) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
 
+  useEffect(() => {
+    localStorage.setItem("ToDoListTasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
-    <AppContext.Provider value={{ tasks, toggleCompleted, deleteTask }}>
+    <AppContext.Provider
+      value={{
+        tasks,
+        toggleCompleted,
+        deleteTask,
+        isAddingTask,
+        startAddTask,
+        cancelAddTask,
+        createTask,
+      }}
+    >
       {props.children}
     </AppContext.Provider>
   );

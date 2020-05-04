@@ -1,0 +1,39 @@
+.NewTaskForm {
+  margin-top: 0.75rem;
+  margin-bottom: -0.5rem;
+}
+
+.NewTaskForm input {
+  width: 100%;
+  font-size: 1.1rem;
+  font-family: inherit;
+  padding: 1rem 1rem 0.8rem;
+  margin-top: 0.75rem;
+  border-radius: 15px;
+  border: 2px solid #ccc;
+}
+
+.NewTaskForm-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NewTaskForm-buttons button {
+  cursor: pointer;
+  font-family: inherit;
+  margin: 1.25rem 0.35rem 0;
+  padding: 0.8em 1.2em 0.6em;
+  border: none;
+  border-radius: 50px;
+}
+
+.NewTaskForm-create {
+  background: #38a538;
+  color: #fff;
+}
+
+.NewTaskForm-cancel {
+  background: #b31f1f;
+  color: #fff;
+}

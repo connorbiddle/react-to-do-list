@@ -48,4 +48,10 @@
 .Task-delete {
   margin-left: auto;
   color: #b31f1f;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.Task:hover .Task-delete {
+  opacity: 1;
 }
