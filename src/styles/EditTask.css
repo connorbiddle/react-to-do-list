@@ -1,0 +1,18 @@
+.EditTask {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  border-bottom: 1px solid rgba(30, 28, 44, 0.6);
+}
+
+.EditTask:last-child {
+  border-bottom: none;
+}
+
+.EditTask input {
+  width: 100%;
+  font-size: 1.1rem;
+  font-family: inherit;
+  padding: 0.3rem 0 0 2.5rem;
+  border: none;
+}

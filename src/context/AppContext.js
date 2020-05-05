@@ -9,22 +9,35 @@ export const AppProvider = (props) => {
   );
   const [isAddingTask, setIsAddingTask] = useState(false);
 
+  // Context functions
   const toggleCompleted = (taskId) => {
     const newTasks = tasks.map((task) =>
       task.id === taskId ? { ...task, completed: !task.completed } : task
     );
     setTasks(newTasks);
   };
+
   const createTask = (taskName) => {
     setTasks([...tasks, { id: uuid(), name: taskName, completed: false }]);
   };
-  const startAddTask = () => setIsAddingTask(true);
-  const cancelAddTask = () => setIsAddingTask(false);
+
   const deleteTask = (taskId) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
 
+  const editTask = (taskId, newName) => {
+    const newTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, name: newName } : task
+    );
+    setTasks(newTasks);
+  };
+
+  const clearTasks = () => setTasks([]);
+  const startAddTask = () => setIsAddingTask(true);
+  const cancelAddTask = () => setIsAddingTask(false);
+
+  // Persist to local storage
   useEffect(() => {
     localStorage.setItem("ToDoListTasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -34,11 +47,13 @@ export const AppProvider = (props) => {
       value={{
         tasks,
         toggleCompleted,
-        deleteTask,
         isAddingTask,
         startAddTask,
         cancelAddTask,
         createTask,
+        deleteTask,
+        editTask,
+        clearTasks,
       }}
     >
       {props.children}

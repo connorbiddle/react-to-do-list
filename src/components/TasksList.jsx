@@ -5,7 +5,9 @@ import NewTaskForm from "./NewTaskForm";
 import "../styles/TasksList.css";
 
 const TasksList = () => {
-  const { tasks, isAddingTask, startAddTask } = useContext(AppContext);
+  const { tasks, isAddingTask, startAddTask, clearTasks } = useContext(
+    AppContext
+  );
 
   const getTasks = () => {
     if (tasks.length <= 0 && !isAddingTask) {
@@ -20,13 +22,19 @@ const TasksList = () => {
   return (
     <ul className="TasksList">
       <h1 className="TasksList-title">To-Do List</h1>
-      {getTasks()}
+      <div>{getTasks()}</div>
       {isAddingTask ? (
         <NewTaskForm />
       ) : (
-        <button className="TasksList-add-new" onClick={startAddTask}>
-          <i className="fas fa-plus" />
-        </button>
+        <div className="TasksList-buttons">
+          <button className="TasksList-add-new" onClick={startAddTask}>
+            <i className="fas fa-plus" />
+          </button>
+          {/* IMPORTANT: Implement confirmation request. */}
+          <button className="TasksList-clear" onClick={clearTasks}>
+            <i className="fas fa-times" />
+          </button>
+        </div>
       )}
     </ul>
   );

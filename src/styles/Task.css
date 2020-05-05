@@ -3,18 +3,20 @@
   align-items: center;
   font-size: 1.1rem;
   border-bottom: 1px solid rgba(30, 28, 44, 0.6);
-  padding: 1rem 0;
+  height: 65px;
   list-style: none;
   cursor: pointer;
+  opacity: 0;
+  animation: fade 0.3s 0.1s ease forwards;
 }
 
-.Task:last-of-type {
+.Task:last-child {
   border-bottom: none;
 }
 
 .Task-icon {
   display: inline-block;
-  margin-right: 1.5rem;
+  width: 2.5rem;
 }
 
 .Task-text {
@@ -45,13 +47,38 @@
   transform: scale(1);
 }
 
-.Task-delete {
+.Task-buttons {
+  display: flex;
   margin-left: auto;
-  color: #b31f1f;
-  opacity: 0;
-  transition: opacity 0.4s;
 }
 
+.Task-edit,
+.Task-delete {
+  opacity: 0;
+  transition: opacity 0.4s;
+  padding: 0.5rem;
+}
+
+.Task-edit {
+  color: #1e1c2c;
+}
+
+.Task-delete {
+  color: #b31f1f;
+}
+
+.Task:hover .Task-edit,
 .Task:hover .Task-delete {
   opacity: 1;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
