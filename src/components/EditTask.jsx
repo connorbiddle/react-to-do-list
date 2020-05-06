@@ -1,16 +1,17 @@
 import React, { useState, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { TasksContext } from "../TasksContext";
 import "../styles/EditTask.css";
 
 const EditTask = ({ id, name, stopEditing }) => {
   const [text, setText] = useState(name);
-  const { editTask } = useContext(AppContext);
+  const { editTask, deleteTask } = useContext(TasksContext);
 
   const handleChange = (e) => setText(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    editTask(id, text);
+    if (text.length > 0) editTask(id, text);
+    else deleteTask(id);
     stopEditing();
   };
 

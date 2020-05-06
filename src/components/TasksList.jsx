@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import React, { useContext, useState } from "react";
+import { TasksContext } from "../TasksContext";
 import Task from "./Task";
 import NewTaskForm from "./NewTaskForm";
 import "../styles/TasksList.css";
 
 const TasksList = () => {
-  const { tasks, isAddingTask, startAddTask, clearTasks } = useContext(
-    AppContext
-  );
+  const { tasks, clearTasks } = useContext(TasksContext);
+
+  const [isAddingTask, setIsAddingTask] = useState(false);
+  const startAddTask = () => setIsAddingTask(true);
+  const cancelAddTask = () => setIsAddingTask(false);
 
   const getTasks = () => {
     if (tasks.length <= 0 && !isAddingTask) {
@@ -24,15 +26,17 @@ const TasksList = () => {
       <h1 className="TasksList-title">To-Do List</h1>
       <div>{getTasks()}</div>
       {isAddingTask ? (
-        <NewTaskForm />
+        <NewTaskForm cancelAddTask={cancelAddTask} />
       ) : (
         <div className="TasksList-buttons">
           <button className="TasksList-add-new" onClick={startAddTask}>
             <i className="fas fa-plus" />
+            <div className="TasksList-add-tooltip tooltip">Add task</div>
           </button>
           {/* IMPORTANT: Implement confirmation request. */}
           <button className="TasksList-clear" onClick={clearTasks}>
             <i className="fas fa-times" />
+            <div className="TasksList-clear-tooltip tooltip">Clear tasks</div>
           </button>
         </div>
       )}

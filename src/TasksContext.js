@@ -1,13 +1,12 @@
 import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 
-export const AppContext = createContext();
+export const TasksContext = createContext();
 
-export const AppProvider = (props) => {
+export const TasksProvider = (props) => {
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem("ToDoListTasks")) || []
   );
-  const [isAddingTask, setIsAddingTask] = useState(false);
 
   // Context functions
   const toggleCompleted = (taskId) => {
@@ -34,22 +33,17 @@ export const AppProvider = (props) => {
   };
 
   const clearTasks = () => setTasks([]);
-  const startAddTask = () => setIsAddingTask(true);
-  const cancelAddTask = () => setIsAddingTask(false);
 
-  // Persist to local storage
+  // Persist to local storage on tasks change
   useEffect(() => {
     localStorage.setItem("ToDoListTasks", JSON.stringify(tasks));
   }, [tasks]);
 
   return (
-    <AppContext.Provider
+    <TasksContext.Provider
       value={{
         tasks,
         toggleCompleted,
-        isAddingTask,
-        startAddTask,
-        cancelAddTask,
         createTask,
         deleteTask,
         editTask,
@@ -57,6 +51,6 @@ export const AppProvider = (props) => {
       }}
     >
       {props.children}
-    </AppContext.Provider>
+    </TasksContext.Provider>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { AppContext } from "../context/AppContext";
+import { TasksContext } from "../TasksContext";
 import "../styles/NewTaskForm.css";
 
-const NewTaskForm = () => {
-  const { createTask, cancelAddTask } = useContext(AppContext);
-
+const NewTaskForm = (props) => {
+  const { cancelAddTask } = props;
+  const { createTask } = useContext(TasksContext);
   const [taskName, setTaskName] = useState("");
 
   const handleChange = (e) => setTaskName(e.target.value);

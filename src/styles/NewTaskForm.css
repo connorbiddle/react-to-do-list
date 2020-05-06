@@ -5,8 +5,8 @@
 
 .NewTaskForm input {
   width: 100%;
+  letter-spacing: -0.5px;
   font-size: 1.1rem;
-  font-family: inherit;
   padding: 1rem 1rem 0.8rem;
   margin-top: 0.75rem;
   border-radius: 15px;

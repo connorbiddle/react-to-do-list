@@ -1,7 +1,8 @@
 .TasksList {
   position: relative;
   background: #fff;
-  width: 500px;
+  width: 550px;
+  max-width: 100%;
   padding: 2rem 2rem 2.5rem;
   border-radius: 20px;
   box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.7);
@@ -17,9 +18,12 @@
 }
 
 .TasksList-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-size: 1.1rem;
-  padding: 1rem 0;
+  height: 65px;
 }
 
 .TasksList-buttons {
@@ -30,6 +34,7 @@
 }
 
 .TasksList-buttons button {
+  position: relative;
   cursor: pointer;
   width: 45px;
   height: 45px;
@@ -53,6 +58,27 @@
 .TasksList-clear {
   background: #b31f1f;
   color: #fff;
+}
+
+.TasksList .tooltip {
+  position: absolute;
+  font-family: "Spartan", sans-serif;
+  font-weight: 400;
+  top: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4em 0.5em;
+  line-height: 1.35;
+  width: 200px;
+  font-size: 0.8rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.TasksList-buttons button:hover .tooltip {
+  opacity: 1;
+  transition-delay: 150ms;
 }
 
 @keyframes appear {

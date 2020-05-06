@@ -1,19 +1,22 @@
 import React, { useContext, useState } from "react";
 import EditTask from "./EditTask";
-import { AppContext } from "../context/AppContext";
+import { TasksContext } from "../TasksContext";
 import "../styles/Task.css";
 
 const Task = ({ id, name, completed }) => {
-  const { toggleCompleted, deleteTask } = useContext(AppContext);
+  const { toggleCompleted, deleteTask } = useContext(TasksContext);
   const [isEditing, setIsEditing] = useState(false);
 
-  const toggle = () => toggleCompleted(id);
-  const startEditing = () => setIsEditing(true);
-  const stopEditing = () => setIsEditing(false);
   const remove = (e) => {
     e.stopPropagation();
     deleteTask(id);
   };
+  const startEditing = (e) => {
+    e.stopPropagation();
+    setIsEditing(true);
+  };
+  const stopEditing = () => setIsEditing(false);
+  const toggle = () => toggleCompleted(id);
 
   if (isEditing)
     return <EditTask id={id} name={name} stopEditing={stopEditing} />;
