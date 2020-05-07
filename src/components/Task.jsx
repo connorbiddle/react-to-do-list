@@ -25,11 +25,20 @@ const Task = ({ id, name, completed }) => {
     <li className={"Task" + (completed ? " completed" : "")} onClick={toggle}>
       <i
         className={`Task-icon far fa-${completed ? "check-square" : "square"}`}
+        aria-hidden="true"
       />
       <span className="Task-text">{name}</span>
       <div className="Task-buttons">
-        <i className="Task-edit fas fa-pen" onClick={startEditing} />
-        <i className="Task-delete fas fa-trash-alt" onClick={remove} />
+        <i
+          className="Task-edit fas fa-pen"
+          onClick={startEditing}
+          aria-hidden="true"
+        />
+        <i
+          className="Task-delete fas fa-trash-alt"
+          onClick={remove}
+          aria-hidden="true"
+        />
       </div>
     </li>
   );

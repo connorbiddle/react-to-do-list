@@ -11,8 +11,9 @@ const NewTaskForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (taskName.length <= 0) return;
-    createTask(taskName);
+    const name = taskName.trim();
+    if (name.length <= 0) return;
+    createTask(name);
     setTaskName("");
     cancelAddTask();
   };

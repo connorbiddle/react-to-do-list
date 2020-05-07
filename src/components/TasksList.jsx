@@ -13,7 +13,7 @@ const TasksList = () => {
 
   const getTasks = () => {
     if (tasks.length <= 0 && !isAddingTask) {
-      return <p className="TasksList-empty">Add some tasks!</p>;
+      return <p className="TasksList-empty">No tasks set.</p>;
     } else {
       return tasks.map((task, index) => (
         <Task key={task.id} isLast={index === tasks.length - 1} {...task} />
@@ -30,12 +30,11 @@ const TasksList = () => {
       ) : (
         <div className="TasksList-buttons">
           <button className="TasksList-add-new" onClick={startAddTask}>
-            <i className="fas fa-plus" />
+            <i className="fas fa-plus" aria-hidden="true" />
             <div className="TasksList-add-tooltip tooltip">Add task</div>
           </button>
-          {/* IMPORTANT: Implement confirmation request. */}
           <button className="TasksList-clear" onClick={clearTasks}>
-            <i className="fas fa-times" />
+            <i className="fas fa-times" aria-hidden="true" />
             <div className="TasksList-clear-tooltip tooltip">Clear tasks</div>
           </button>
         </div>

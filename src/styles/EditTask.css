@@ -3,6 +3,8 @@
   align-items: center;
   height: 65px;
   border-bottom: 1px solid rgba(30, 28, 44, 0.6);
+  opacity: 0;
+  animation: fadeIn 0.3s 0.1s ease forwards;
 }
 
 .EditTask:last-child {
@@ -11,8 +13,12 @@
 
 .EditTask input {
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-family: inherit;
-  padding: 0.3rem 0 0 2.5rem;
+  padding: 0.9rem 0.65rem 0.65rem 2.5rem;
+  letter-spacing: -0.5px;
   border: none;
+  border-radius: 5px;
+  background: #f0f0f0;
+  border: 1px solid #d3d3d3;
 }

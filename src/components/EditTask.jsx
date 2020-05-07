@@ -10,14 +10,25 @@ const EditTask = ({ id, name, stopEditing }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.length > 0) editTask(id, text);
+    const newName = text.trim();
+    if (newName.length > 0) editTask(id, newName);
     else deleteTask(id);
     stopEditing();
   };
 
+  const checkEscapePressed = (e) => {
+    if (e.keyCode === 27) stopEditing();
+  };
+
   return (
-    <form className="EditTask" onSubmit={handleSubmit}>
-      <input autoFocus type="text" value={text} onChange={handleChange} />
+    <form className="EditTask" onSubmit={handleSubmit} onBlur={stopEditing}>
+      <input
+        autoFocus
+        type="text"
+        value={text}
+        onChange={handleChange}
+        onKeyDown={checkEscapePressed}
+      />
     </form>
   );
 };

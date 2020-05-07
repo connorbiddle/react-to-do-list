@@ -1,16 +1,20 @@
 .NewTaskForm {
   margin-top: 0.75rem;
   margin-bottom: -0.5rem;
+  opacity: 0;
+  animation: fadeIn 0.3s 0.1s ease forwards;
 }
 
 .NewTaskForm input {
   width: 100%;
+  font-size: 1.05rem;
+  font-family: inherit;
+  padding: 0.9rem 0.65rem 0.65rem 2.5rem;
   letter-spacing: -0.5px;
-  font-size: 1.1rem;
-  padding: 1rem 1rem 0.8rem;
-  margin-top: 0.75rem;
-  border-radius: 15px;
-  border: 2px solid #ccc;
+  border: none;
+  border-radius: 5px;
+  background: #f0f0f0;
+  border: 1px solid #d3d3d3;
 }
 
 .NewTaskForm-buttons {
@@ -26,14 +30,22 @@
   padding: 0.8em 1.2em 0.6em;
   border: none;
   border-radius: 50px;
+  transition: transform 350ms ease;
+  color: #fff;
 }
 
 .NewTaskForm-create {
   background: #38a538;
-  color: #fff;
 }
 
 .NewTaskForm-cancel {
   background: #b31f1f;
-  color: #fff;
+}
+
+.NewTaskForm-create:hover {
+  transform: scale(1.1);
+}
+
+.NewTaskForm-cancel:hover {
+  transform: scale(1.1);
 }
