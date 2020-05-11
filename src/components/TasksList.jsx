@@ -16,7 +16,12 @@ const TasksList = () => {
       return <p className="TasksList-empty">No tasks set.</p>;
     } else {
       return tasks.map((task, index) => (
-        <Task key={task.id} isLast={index === tasks.length - 1} {...task} />
+        <Task
+          key={task.id}
+          isLast={index === tasks.length - 1}
+          {...task}
+          cancelAddTask={cancelAddTask}
+        />
       ));
     }
   };

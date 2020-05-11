@@ -3,16 +3,18 @@ import EditTask from "./EditTask";
 import { TasksContext } from "../TasksContext";
 import "../styles/Task.css";
 
-const Task = ({ id, name, completed }) => {
+const Task = ({ id, name, completed, cancelAddTask }) => {
   const { toggleCompleted, deleteTask } = useContext(TasksContext);
   const [isEditing, setIsEditing] = useState(false);
 
   const remove = (e) => {
     e.stopPropagation();
+    cancelAddTask();
     deleteTask(id);
   };
   const startEditing = (e) => {
     e.stopPropagation();
+    cancelAddTask();
     setIsEditing(true);
   };
   const stopEditing = () => setIsEditing(false);

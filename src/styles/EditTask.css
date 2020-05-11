@@ -22,3 +22,12 @@
   background: #f0f0f0;
   border: 1px solid #d3d3d3;
 }
+
+@media (max-width: 550px) {
+  .EditTask {
+    height: 55px;
+  }
+  .EditTask input {
+    font-size: 0.95rem;
+  }
+}

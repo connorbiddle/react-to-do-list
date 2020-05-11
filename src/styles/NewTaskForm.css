@@ -49,3 +49,9 @@
 .NewTaskForm-cancel:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 550px) {
+  .NewTaskForm input {
+    font-size: 0.95rem;
+  }
+}

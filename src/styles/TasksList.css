@@ -27,10 +27,13 @@
 }
 
 .TasksList-buttons {
+  display: flex;
+  justify-content: center;
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 50%);
+  width: 100%;
 }
 
 .TasksList-buttons button {
@@ -81,10 +84,28 @@
   transition-delay: 150ms;
 }
 
+@media (max-width: 550px) {
+  .TasksList {
+    padding: 1.5rem 1.5rem 2.25rem;
+  }
+  .TasksList-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .TasksList-buttons button {
+    margin: 0 1.75rem;
+    opacity: 1;
+  }
+  .TasksList-buttons button .tooltip {
+    margin-top: 0.15rem;
+    opacity: 1;
+  }
+}
+
 @keyframes appear {
   from {
     opacity: 0;
-    transform: scale(0.75);
+    transform: scale(0.85);
   }
   to {
     opacity: 1;

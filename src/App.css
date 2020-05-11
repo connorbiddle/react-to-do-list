@@ -1,8 +1,15 @@
 .App {
   min-height: 100vh;
-  background: #1e1c2c;
+  background: #413688;
+  background: linear-gradient(150deg, #6c5cd4, #251d55);
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 4rem 1.5rem;
+  padding: 4rem 1.5rem 5.5rem;
+}
+
+@media (max-width: 550px) {
+  .App {
+    padding: 1.25rem 1.25rem 5.5rem;
+  }
 }
