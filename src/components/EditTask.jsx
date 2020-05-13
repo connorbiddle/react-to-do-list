@@ -29,6 +29,9 @@ const EditTask = ({ id, name, stopEditing }) => {
         onChange={handleChange}
         onKeyDown={checkEscapePressed}
       />
+      <button type="submit">
+        <i class="fas fa-check" />
+      </button>
     </form>
   );
 };

@@ -1,4 +1,5 @@
 .EditTask {
+  position: relative;
   display: flex;
   align-items: center;
   height: 65px;
@@ -15,12 +16,31 @@
   width: 100%;
   font-size: 1.05rem;
   font-family: inherit;
-  padding: 0.9rem 0.65rem 0.65rem 2.5rem;
+  padding: 0.9rem 2.5rem 0.65rem 2.5rem;
   letter-spacing: -0.5px;
   border: none;
   border-radius: 5px;
   background: #f0f0f0;
   border: 1px solid #d3d3d3;
+}
+
+.EditTask button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Spartan", sans-serif;
+  border: none;
+  background: #38a538;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 @media (max-width: 550px) {
