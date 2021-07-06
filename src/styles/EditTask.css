@@ -16,7 +16,7 @@
   width: 100%;
   font-size: 1.05rem;
   font-family: inherit;
-  padding: 0.9rem 2.5rem 0.65rem 2.5rem;
+  padding: 1rem 1.25rem;
   letter-spacing: -0.5px;
   border: none;
   border-radius: 5px;
@@ -34,7 +34,7 @@
   transform: translateY(-50%);
   font-family: "Spartan", sans-serif;
   border: none;
-  background: #38a538;
+  background: #58bb58;
   color: #fff;
   width: 22px;
   height: 22px;

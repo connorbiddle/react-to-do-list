@@ -13,7 +13,12 @@ const TasksList = () => {
 
   const getTasks = () => {
     if (tasks.length <= 0 && !isAddingTask) {
-      return <p className="TasksList-empty">No tasks set.</p>;
+      return (
+        <div className="TasksList-empty">
+          <p>No tasks set.</p>
+          <p>Get busy - add something!</p>
+        </div>
+      );
     } else {
       return tasks.map((task, index) => (
         <Task

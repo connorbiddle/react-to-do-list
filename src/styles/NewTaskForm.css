@@ -2,14 +2,14 @@
   margin-top: 0.75rem;
   margin-bottom: -0.5rem;
   opacity: 0;
-  animation: fadeIn 0.3s 0.1s ease forwards;
+  animation: fadeIn 0.2s 0.1s ease forwards;
 }
 
 .NewTaskForm input {
   width: 100%;
   font-size: 1.05rem;
   font-family: inherit;
-  padding: 0.9rem 0.65rem 0.65rem 2.5rem;
+  padding: 1rem 1.25rem;
   letter-spacing: -0.5px;
   border: none;
   border-radius: 5px;
@@ -35,11 +35,11 @@
 }
 
 .NewTaskForm-create {
-  background: #38a538;
+  background: #58bb58;
 }
 
 .NewTaskForm-cancel {
-  background: #b31f1f;
+  background: #c93e3e;
 }
 
 .NewTaskForm-create:hover {
